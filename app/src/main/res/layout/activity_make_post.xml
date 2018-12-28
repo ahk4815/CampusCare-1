@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.campuscare.make_post">
+
+    <Button
+        android:id="@+id/choose_img"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="choose" />
+
+    <EditText
+        android:id="@+id/desc"
+        android:layout_marginTop="15dp"
+        android:layout_width="134pt"
+        android:layout_height="wrap_content"
+        android:hint="Write Description here..." />
+
+    <Button
+        android:id="@+id/upload_img"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/choose_img"
+        android:text="upload" />
+    <ProgressBar
+        android:layout_marginTop="40sp"
+        android:id="@+id/mprogress"
+        android:layout_below="@id/upload_img"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mprogress"
+        android:id="@+id/imgv"
+        />
+
+
+</RelativeLayout>

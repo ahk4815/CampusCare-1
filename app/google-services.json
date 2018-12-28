@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1095775711152",
+    "firebase_url": "https://campuscare-fc6ae.firebaseio.com",
+    "project_id": "campuscare-fc6ae",
+    "storage_bucket": "campuscare-fc6ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095775711152:android:444e1d8456317f2d",
+        "android_client_info": {
+          "package_name": "com.example.android.campuscare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095775711152-179gfinjs06jop6cnfpl3u25qcejl6fq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgT1n0aZ3wO0Hzn3JVPujqc4LQa8nAnR4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

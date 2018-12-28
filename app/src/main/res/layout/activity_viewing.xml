@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.campuscare.viewing">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text3"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_marginLeft="50sp"
+        android:layout_marginRight="50sp"
+        android:id="@+id/pic"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="type  a comment"
+        android:id="@+id/comment"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50sp"
+        android:text="comment"
+
+        android:layout_marginTop="10sp"
+        android:id="@+id/upload_com"
+        />
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/list"
+
+ />
+
+
+
+
+</LinearLayout>
