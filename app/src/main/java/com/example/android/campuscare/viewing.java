@@ -38,7 +38,8 @@ public class viewing extends AppCompatActivity {
         Intent comm=getIntent();
        String imageUrl=comm.getStringExtra("image_url");
         String des=comm.getStringExtra("desc");
-        String idd=comm.getStringExtra("id");
+        getSupportActionBar().setTitle(des);
+        String idd="abcd";idd=comm.getStringExtra("id");
       img=(ImageView)findViewById(R.id.pic);
       //tet=(TextView)findViewById(R.id.text3);
       //tet.setText(des);
@@ -55,7 +56,7 @@ public class viewing extends AppCompatActivity {
     @Override
     public void onClick(View v) {
         String y=et.getText().toString().trim();
-        if(y!="") {
+        if(y.length()!=0) {
             String uid = ndatabaseReference.push().getKey();
             // System.out.println("-------------------------"+uid+"--------------------");
             comments com = new comments(uid, y);

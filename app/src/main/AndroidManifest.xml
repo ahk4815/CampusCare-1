@@ -13,20 +13,21 @@
         android:label="CampusCare"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
         </activity>
+        <activity android:name=".Reset"/>
         <activity android:name=".logging" />
         <activity android:name=".domain" />
         <activity android:name=".posts" />
         <activity android:name=".make_post" />
-        <activity android:name=".viewing"></activity>
+        <activity android:name=".viewing"/>
         <activity android:name=".newuser"/>
     </application>
-
 </manifest>

@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -66,14 +68,13 @@ public class posts extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
                     mUploads.add(upload);
-
                     System.out.println("--------------here--------------------"+upload.getImageUrl()+"-----------------------------------------");
                 }
                 Collections.reverse(mUploads);
                 mAdapter = new ImageAdapter(posts.this, mUploads);
 
                 mRecyclerView.setAdapter(mAdapter);
-      //          mProgressCircle.setVisibility(View.INVISIBLE);
+                //  mProgressCircle.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -82,7 +83,31 @@ public class posts extends AppCompatActivity {
         //        mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
-
-
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        CreateMenu(menu);
+        return true;
+    }
+    private void CreateMenu(Menu menu){
+        MenuItem mnu= menu.add(0,0,0,"Anonymous");
+        {
+            mnu.setIcon(R.mipmap.ic_launcher);
+            mnu.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+    }
+    private boolean MenuChoice(MenuItem item){
+        switch(item.getItemId()){
+            case 0:Toast.makeText(this,"hello",Toast.LENGTH_SHORT).show();
+                //Intent anon=new Intent(this,anonymous.class);
+                //startActivity(anon);
+                return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        return MenuChoice(item);
+    }
+
 }

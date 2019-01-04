@@ -5,10 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fffebc"
     tools:context="com.example.android.campuscare.logging">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Forgot Password?"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:onClick="forgot_password"
+        android:layout_alignParentEnd="true"/>
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -17,6 +29,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="154dp"
         android:textColor="#000000"
+        android:fontFamily="@font/campus"
         android:text="Log In to Remain Updated... "
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
 
@@ -26,7 +39,7 @@
         android:layout_height="42dp"
         android:layout_below="@id/textView"
         android:layout_centerHorizontal="true"
-
+        android:fontFamily="@font/campus"
         android:background="@drawable/email"
         android:ems="10"
         android:gravity="center"
@@ -40,7 +53,7 @@
         android:layout_marginTop="4dp"
         android:layout_below="@id/email1"
         android:layout_centerHorizontal="true"
-
+        android:fontFamily="@font/campus"
         android:background="@drawable/email"
         android:ems="10"
         android:gravity="center"
@@ -56,11 +69,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:background="@drawable/login_button"
+        android:backgroundTint="#ffae00"
         android:gravity="center"
         android:onClick="loginUser"
         android:text="Log In"
+        android:fontFamily="@font/campus"
         android:textColor="#FFFFFF"
-        android:textSize="17dp"></TextView>
+        android:textSize="25dp"></TextView>
 
 </RelativeLayout>
 </ScrollView>

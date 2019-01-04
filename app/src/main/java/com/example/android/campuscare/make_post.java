@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -26,8 +27,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
-
 import java.io.IOException;
 
 public class make_post extends AppCompatActivity {
@@ -116,8 +115,8 @@ public class make_post extends AppCompatActivity {
                   public void run() {
                  mProgresBar.setProgress(0);
                   }
-              },2000);
-              Toast.makeText(getApplicationContext(),"uploaded successfully",Toast.LENGTH_SHORT).show();
+              },1000);
+              Toast.makeText(getApplicationContext(),"Uploaded Successfully",Toast.LENGTH_SHORT).show();
                  Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                  while (!urlTask.isSuccessful());
                  Uri downloadUrl = urlTask.getResult();
@@ -133,7 +132,7 @@ public class make_post extends AppCompatActivity {
          }).addOnFailureListener(new OnFailureListener() {
              @Override
              public void onFailure(@NonNull Exception e) {
-                 Toast.makeText(getApplicationContext(),"error is here",Toast.LENGTH_SHORT).show();
+                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
              }
          }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
              @Override
@@ -142,12 +141,11 @@ public class make_post extends AppCompatActivity {
                  mProgresBar.setProgress((int)progress);
              }
          }) ;
-
-
+         finish();
      }
      else
      {
-         Toast.makeText(getApplicationContext(),"no file selected plz select file",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Please type something or choose a file to make a post",Toast.LENGTH_SHORT).show();
      }
     }
 

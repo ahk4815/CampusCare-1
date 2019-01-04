@@ -5,12 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
+    android:background="#fffebc"
+    android:theme="@style/AppTheme"
     tools:context="com.example.android.campuscare.domain">
 <ListView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:textAlignment="center"
+    android:fontFamily="@font/campus"
+    android:elevation="20dp"
+    android:background="#FFFFFF"
     android:id="@+id/list_view"
-    />
+    >
+</ListView>
 
 
 </LinearLayout>

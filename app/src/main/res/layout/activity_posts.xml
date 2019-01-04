@@ -5,41 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fffebc"
+    android:theme="@style/AppTheme"
     tools:context="com.example.android.campuscare.posts">
 
-    <TextView
-        android:id="@+id/textt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonpost"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_toLeftOf="@id/buttonpost"
-        android:text="Touch to Post information--> "
-        android:textSize="20dp" />
 
     <Button
         android:id="@+id/buttonpost"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
         android:layout_gravity="right"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+
+        android:background="#ffae00"
+        android:elevation="50dp"
         android:text="post" />
 
     <android.support.v7.widget.RecyclerView
-
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/buttonpost"
-        android:layout_marginTop="15dp" />
+        android:background="#FFFFFF"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
 
 

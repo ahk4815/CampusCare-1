@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#fffebc"
+    android:theme="@style/AppCompat"
     tools:context="com.example.android.campuscare.viewing">
-
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,35 +19,51 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="300sp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="50sp"
         android:layout_marginRight="50sp"
         android:id="@+id/pic"
-
-        />
-
-    <EditText
+       />
+    <LinearLayout android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="type  a comment"
-        android:id="@+id/comment"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50sp"
-        android:text="comment"
+        android:orientation="horizontal"
 
-        android:layout_marginTop="10sp"
-        android:id="@+id/upload_com"
-        />
+        >
+        <EditText
+            android:id="@+id/comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.80"
+            android:fontFamily="@font/campus"
+            android:hint="Type a comment" />
+
+        <Button
+            android:id="@+id/upload_com"
+            android:layout_width="105dp"
+            android:layout_height="50sp"
+            android:layout_weight="0.30"
+            android:backgroundTint="#ffae00"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="10dp"
+            android:text="comment" /></LinearLayout>
+    <TextView
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:textSize="25dp"
+        android:fontFamily="@font/campus"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comments"/>
 <ListView
+    android:layout_marginTop="12dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFFFFF"
     android:id="@+id/list"
-
  />
-
-
-
-
 </LinearLayout>
+</ScrollView>
