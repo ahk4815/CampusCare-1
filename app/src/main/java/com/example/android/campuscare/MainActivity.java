@@ -30,6 +30,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthEmailException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.sql.Time;
@@ -38,6 +39,7 @@ import java.util.Timer;
 public class MainActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
+    private EditText userid;
     private TextView signin;
     private TextView loggin;
     private TextView verify;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         ConnectivityManager cm=(ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork=cm.getActiveNetworkInfo();
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         password=(EditText) findViewById(R.id.password);
         signin=(TextView) findViewById(R.id.signup);
         verify=(TextView)findViewById(R.id.verify);
-
+        userid=(EditText)findViewById(R.id.userid);
 
         //Glide.with(this)
             //    .load("https://firebasestorage.googleapis.com/v0/b/campuscare-fc6ae.appspot.com/o/LAW%20AND%20ORDER%2F1540367980550.jpg?alt=media&token=82267b46-75ff-4daf-8445-6a01ada21702")
@@ -80,9 +82,10 @@ public class MainActivity extends AppCompatActivity {
 
         final String email_id=email.getText().toString().trim();
         final String pass=password.getText().toString().trim();
-        if((TextUtils.isEmpty(email_id))||(TextUtils.isEmpty(pass)))
+        final String name=userid.getText().toString().trim();
+        if((TextUtils.isEmpty(email_id))||(TextUtils.isEmpty(pass))||(TextUtils.isEmpty(name)))
         {
-            Toast.makeText(this,"Please enter email and password",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"All fields are compulsory",Toast.LENGTH_SHORT).show();
             return;
         }
         final View snackbar=findViewById(R.id.snackbar);
@@ -97,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
                     progressDialog.hide();
                     firebaseAuth=FirebaseAuth.getInstance();
                     final FirebaseUser user = firebaseAuth.getCurrentUser();
-                    user.sendEmailVerification().addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
+                    UserProfileChangeRequest name=new UserProfileChangeRequest.Builder().setDisplayName(userid.getText().toString()).build();
+                    user.updateProfile(name);
+                            user.sendEmailVerification().addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){

@@ -13,14 +13,18 @@ import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -38,16 +42,30 @@ public class make_post extends AppCompatActivity {
     private DatabaseReference mdatabaseReference;
     ImageView mimageView;
     EditText e;
-
+    CheckBox anon;
+    String usname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_post);
+        getSupportActionBar().setTitle("Post...");
         Intent post=getIntent();
         final String ndomain = post.getStringExtra("name");
         bc=(Button)findViewById(R.id.choose_img);
         bu=(Button)findViewById(R.id.upload_img);
         e=(EditText)findViewById(R.id.desc);
+        anon=findViewById(R.id.anon);
+        FirebaseAuth Auth=FirebaseAuth.getInstance();
+        FirebaseUser a=Auth.getCurrentUser();
+        usname=a.getDisplayName();
+        anon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(((CheckBox)v).isChecked())
+                    usname="Anonymous";
+            }
+        });
+
         mProgresBar =(ProgressBar)findViewById(R.id.mprogress);
        mimageView=(ImageView)findViewById(R.id.imgv);
         mStorageRef= FirebaseStorage.getInstance().getReference(ndomain);
@@ -141,7 +159,7 @@ public class make_post extends AppCompatActivity {
                  mProgresBar.setProgress((int)progress);
              }
          }) ;
-         finish();
+
      }
      else
      {
@@ -154,8 +172,8 @@ public class make_post extends AppCompatActivity {
         System.out.println("-------------------------------chu-----------------------------");
         System.out.println("-----------------------"+x+"----------------------------------") ;
         String uid=mdatabaseReference.push().getKey();
-        System.out.println("-------------------------"+uid+"--------------------");
-        Upload upload =new Upload(uid,e.getText().toString().trim(),x);
+        System.out.println("------  -------------------"+uid+"--------------------");
+        Upload upload =new Upload(uid,usname,e.getText().toString().trim(),x);
         System.out.println("--------------------------done--------------------");
         mdatabaseReference.child(uid).setValue(upload);
     }

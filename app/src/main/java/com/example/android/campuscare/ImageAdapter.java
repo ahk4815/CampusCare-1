@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
  */
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     public void onBindViewHolder(ImageViewHolder holder, int position) {
        final Upload uploadCurrent = mUploads.get(position);
         holder.textViewName.setText(uploadCurrent.getName());
+        holder.Username.setText(uploadCurrent.getUsername());
       //  Toast.makeText(mContext,uploadCurrent.getImageUrl(),Toast.LENGTH_SHORT).show();
          final String chi= uploadCurrent.getImageUrl();
       /*  Glide.with(mContext)
@@ -65,13 +67,14 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             public void onClick(View v) {
                 Toast.makeText(mContext,"you clicked "+uploadCurrent.getName(),Toast.LENGTH_SHORT).show();
                 Intent comm=new Intent(mContext,viewing.class);
+
                 comm.putExtra("image_url",uploadCurrent.getImageUrl());
                 comm.putExtra("desc",uploadCurrent.getName());
+                comm.putExtra("username",uploadCurrent.getUsername());
                 comm.putExtra("id",uploadCurrent.getid());
                 mContext.startActivity(comm);
             }
         });
-
     }
 
     @Override
@@ -82,10 +85,11 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewName;
         public ImageView imageView;
+        public TextView Username;
         public LinearLayout l;
         public ImageViewHolder(View itemView) {
             super(itemView);
-
+            Username=itemView.findViewById(R.id.username);
             textViewName = itemView.findViewById(R.id.post_desc);
             imageView = itemView.findViewById(R.id.post_img);
             l=(LinearLayout)itemView.findViewById(R.id.linear);

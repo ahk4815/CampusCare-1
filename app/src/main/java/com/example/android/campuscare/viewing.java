@@ -12,6 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.target.Target;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +34,8 @@ public class viewing extends AppCompatActivity {
    Button btn ;
    ListView lv;
    List<comments> ArtistList ;
+   FirebaseUser user;
+   FirebaseAuth mAuth;
     private DatabaseReference ndatabaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +44,17 @@ public class viewing extends AppCompatActivity {
         Intent comm=getIntent();
        String imageUrl=comm.getStringExtra("image_url");
         String des=comm.getStringExtra("desc");
-        getSupportActionBar().setTitle(des);
-        String idd="abcd";idd=comm.getStringExtra("id");
-      img=(ImageView)findViewById(R.id.pic);
-      //tet=(TextView)findViewById(R.id.text3);
-      //tet.setText(des);
-
+        final String username=comm.getStringExtra("username");
+        String idd=comm.getStringExtra("id");
+        img=(ImageView)findViewById(R.id.pic);
+        tet=(TextView)findViewById(R.id.text3);
+        tet.setText(des);
       ArtistList=new ArrayList<>();
       lv=(ListView)findViewById(R.id.list);
-        Glide.with(this)
+        Target<GlideDrawable> into = Glide.with(this)
                 .load(imageUrl)
                 .into(img);
+        System.out.println(idd);
         ndatabaseReference= FirebaseDatabase.getInstance().getReference(idd);
     et=(EditText)findViewById(R.id.comment);
     btn=(Button)findViewById(R.id.upload_com);
@@ -59,10 +65,10 @@ public class viewing extends AppCompatActivity {
         if(y.length()!=0) {
             String uid = ndatabaseReference.push().getKey();
             // System.out.println("-------------------------"+uid+"--------------------");
-            comments com = new comments(uid, y);
+            comments com = new comments(uid,username,y);
             //System.out.println("--------------------------done--------------------");
             ndatabaseReference.child(uid).setValue(com);
-            Toast.makeText(getApplicationContext(),"uploaded",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Uploaded",Toast.LENGTH_SHORT).show();
         }
         else
         {

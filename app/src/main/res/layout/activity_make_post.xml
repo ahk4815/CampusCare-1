@@ -36,18 +36,23 @@
 
 
     </LinearLayout>
+    <CheckBox
+        android:id="@+id/anon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/write"
+        android:layout_marginTop="10dp"
+        android:text="Anonymously"/>
     <Button
         android:id="@+id/upload_img"
         android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:background="#ffae00"
-
-        android:layout_below="@+id/write"
+        android:layout_below="@+id/anon"
         android:text="upload" />
     <ProgressBar
         android:layout_marginTop="40sp"

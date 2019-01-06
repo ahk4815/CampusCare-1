@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +14,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.bumptech.glide.load.engine.Resource;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
 
@@ -27,8 +26,8 @@ public class domain extends AppCompatActivity {
         setContentView(R.layout.activity_domain);
         Intent dom=getIntent();
         gv=(ListView)findViewById(R.id.list_view);
-
-        final String domain_name[]={"Administration","Pollution","Ragging","Law and Order","Woman Safety","Misconduct"};
+        getSupportActionBar().setTitle("Hello, "+FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+        final String domain_name[]={"ADMINISTRATION","POLLUTION","RAGGING","LAW AND ORDER","WOMAN SAFETY","MISCONDUCT"};
         ArrayAdapter<String> arr = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, Arrays.asList(domain_name)) ;
         gv.setAdapter(arr);
         ImageView a;

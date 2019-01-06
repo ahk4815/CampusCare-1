@@ -17,9 +17,8 @@ public class Reset extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
         setContentView(R.layout.reset);
-        email=(EditText)findViewById(R.id.email1);
+        email=(EditText)findViewById(R.id.email2);
     }
     public void reset(View view){
         FirebaseAuth auth=FirebaseAuth.getInstance();

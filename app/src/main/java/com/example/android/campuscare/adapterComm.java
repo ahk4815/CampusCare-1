@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.List;
 
 /**
@@ -30,10 +32,12 @@ public class adapterComm extends ArrayAdapter<comments> {
         View listViewItem = inflater.inflate(R.layout.coms, null, true);
 
         TextView textViewName = (TextView) listViewItem.findViewById(R.id.id4);
+        TextView UserName = (TextView) listViewItem.findViewById(R.id.id3);
        // TextView textViewGenre = (TextView) listViewItem.findViewById(R.id.textViewGenre);
 
         comments artist = artists.get(position);
         textViewName.setText(artist.getcom());
+        UserName.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
       //  textViewGenre.setText(artist.getArtistGenre());
 
         return listViewItem;

@@ -37,9 +37,11 @@ public class posts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts);
+
         f=(Button)findViewById(R.id.buttonpost);
         Intent new_feed =getIntent();
         final String n=new_feed.getStringExtra("type");
+        getSupportActionBar().setTitle(n);
         //t=(TextView)findViewById(R.id.textt);
         //t.setText(n);
 

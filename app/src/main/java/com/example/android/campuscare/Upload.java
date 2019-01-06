@@ -7,15 +7,17 @@ package com.example.android.campuscare;
 
 public class Upload {
     String mId;
-     String mName;
-     String mImageUrl;
+     String mUsername;
+      String mName;
+      String mImageUrl;
     public Upload()
     {
 
     }
 
-    public Upload(String mId,String mName,String mImageUrl) {
+    public Upload(String mId,String mUsername,String mName,String mImageUrl) {
         this.mId=mId;
+        this.mUsername=mUsername;
         this.mName=mName;
         this.mImageUrl=mImageUrl;
     }
@@ -27,14 +29,15 @@ public class Upload {
     {
         return mId;
     }
+    public String getUsername() { return mUsername;    }
     public void setName(String mName) {
         this.mName = mName;
     }
-
+    public void setmUsername(String mUsername){this.mUsername=mUsername;}
     public String getImageUrl() {
         return mImageUrl;
     }
-
+    public void setmId(String mId){this.mId=mId;}
     public void setImageUrl(String mImageUrl) {
         this.mImageUrl = mImageUrl;
     }

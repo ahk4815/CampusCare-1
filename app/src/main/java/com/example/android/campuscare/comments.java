@@ -6,14 +6,16 @@ package com.example.android.campuscare;
 
 public class comments {
     String nId;
-    String ncom;
+    private String ncom;
+    String nUser;
     public comments()
     {
 
     }
 
-    public comments(String mId,String mName) {
+    public comments(String mId,String mUsername,String mName) {
         this.nId=mId;
+        this.nUser=mUsername;
         this.ncom=mName;
     }
 
@@ -24,8 +26,11 @@ public class comments {
     {
         return nId;
     }
+    public String getuser(){return nUser;   }
+
     public void setcom(String mName) {
         this.ncom = mName;
     }
+
 
 }

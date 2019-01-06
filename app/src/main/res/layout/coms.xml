@@ -4,14 +4,30 @@
     android:orientation="vertical"
     android:theme="@style/AppTheme"
     android:layout_height="match_parent">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
+        android:layout_weight="20"
+        android:id="@+id/id3"
+        android:textStyle="bold"
+        android:text="Username"
+        android:fontFamily="@font/campus"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/id4"
         android:text="HELLO"
         android:fontFamily="@font/campus"
         android:textSize="15sp"
         />
+
+</LinearLayout>
 
 </LinearLayout>
