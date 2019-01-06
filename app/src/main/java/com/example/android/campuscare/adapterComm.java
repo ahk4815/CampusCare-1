@@ -26,7 +26,7 @@ public class adapterComm extends ArrayAdapter<comments> {
     }
 
 
-    @Override
+    @Override 
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
         View listViewItem = inflater.inflate(R.layout.coms, null, true);
